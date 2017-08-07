@@ -22,6 +22,7 @@ extension ApiGithubComJsonGloss {
     static func fetch(completion: @escaping ([ApiGithubComJsonGloss]) -> Void) {
         request("https://api.github.com/users/octocat/repos").responseJSON { response in
             
+            //哈囉
             //用 Gloss 直接解析 JSON 陣列，並回傳到 [ApiGithubComJsonGloss] 中放到 dataTransfer 準備回傳
             guard let dataTransfer = [ApiGithubComJsonGloss].from(jsonArray: response.result.value as! [JSON]) else {
                 return
