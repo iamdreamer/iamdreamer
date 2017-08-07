@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 class ViewController: UIViewController {
-    var apiGithubComJsons: [ApiGithubComJson] = []//用來放 completion 傳來的資料
+    var apiGithubComJsonsGloss: [ApiGithubComJsonGloss] = []//用來放 completion 傳來的資料
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,10 +18,10 @@ class ViewController: UIViewController {
         
         //希望重構程式到用以下一行即可處理 JSON 的取得
         //使用這個方法時，其實物件還沒初始化
-        ApiGithubComJson.fetch(){ dataTransfer in//completion 將資料傳過來
-            self.apiGithubComJsons = dataTransfer//將資料放在這個類別中
+        ApiGithubComJsonGloss.fetch(){ dataTransfer in//completion 將資料傳過來
+            self.apiGithubComJsonsGloss = dataTransfer//將資料放在這個類別中
             print("fetch() 完成後")
-            print(self.apiGithubComJsons)
+            print(self.apiGithubComJsonsGloss)
         }
     }
     
