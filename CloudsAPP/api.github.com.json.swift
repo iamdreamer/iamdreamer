@@ -7,10 +7,25 @@ struct  ApiGithubComJsonGloss: Decodable {//使用 Gloss，並定義要解析的
     //必需使用 optional
     let id: Int?
     let name: String?
+    let owner: ApiGithubComOwnerJsonGloss?
     
     init?(json: JSON) {//必需定義 init
         self.id = "id" <~~ json//告訴 Gloss 要解析什麼
         self.name = "name" <~~ json
+        self.owner = "owner" <~~ json
+    }
+}
+
+struct  ApiGithubComOwnerJsonGloss: Decodable {
+    
+    let login: String?
+    let id: Int?
+    let site_admin: Bool?
+    
+    init?(json: JSON) {
+        self.login = "login" <~~ json
+        self.id = "id" <~~ json
+        self.site_admin = "site_admin" <~~ json
     }
 }
 
