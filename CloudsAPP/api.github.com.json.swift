@@ -22,28 +22,9 @@ extension ApiGithubComJsonGloss {
     static func fetch(completion: @escaping ([ApiGithubComJsonGloss]) -> Void) {
         request("https://api.github.com/users/octocat/repos").responseJSON { response in
             
-            var dataTransfer: [ApiGithubComJsonGloss] = []//先把資料放在這，完成後再傳出去
-            
-            //跟前面所教的一樣，解最外面的 []
-            guard let result_value = response.result.value,
-                let array = result_value as? [Any] else {
-                    return
-            }
-            
-            //把每個 JSON 物件從 陣列 中解出
-            for JSON_OBJECT in array {
-                guard let dictionary = JSON_OBJECT as? [String: Any] else {
-                    return
-                }
-                
-                //直接將 json 丟給套件解析
-                guard let jsonParsingGloss = ApiGithubComJsonGloss(json: dictionary) else {
-                    return
-                }
-
-                print(jsonParsingGloss)//印出物件內容
-                dataTransfer.append(jsonParsingGloss)//把資料放到要傳送出去的陣列中
-                print("fetch() 完成")//在執行 completion 之前
+            //用 Gloss 直接解析 JSON 陣列，並回傳到 [ApiGithubComJsonGloss] 中放到 dataTransfer 準備回傳
+            guard let dataTransfer = [ApiGithubComJsonGloss].from(jsonArray: response.result.value as! [JSON]) else {
+                return
             }
             
             completion(dataTransfer)//執行定義好的 completion handler 將資料傳出
