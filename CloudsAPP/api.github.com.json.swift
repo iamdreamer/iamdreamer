@@ -16,6 +16,18 @@ struct ApiGithubComJsonOwner {
     let site_admin: Bool
 }
 
+struct  ApiGithubComJsonGloss: Decodable {//使用 Gloss，並定義要解析的部份
+    
+    //必需使用 optional
+    let id: Int?
+    let name: String?
+    
+    init?(json: JSON) {//必需定義 init
+        self.id = "id" <~~ json//告訴 Gloss 要解析什麼
+        self.name = "name" <~~ json
+    }
+}
+
 extension ApiGithubComJson {//傳入 dictionary 解出我們要的東西
     
     init?(dictionaryInput: [String: Any]) {
@@ -59,17 +71,18 @@ extension ApiGithubComJson {
                     return
                 }
                 
-                //在初始化時，使用上面定對的 init 來解我們傳入的 dictionary
-                guard let apiGithubComJson = ApiGithubComJson(dictionaryInput: dictionary) else {
+                //直接將 json 丟給套件解析
+                guard let jsonParsingGloss = ApiGithubComJsonGloss(json: dictionary) else {
                     return
                 }
-                
-                print(apiGithubComJson)//印出物件內容
-                dataTransfer.append(apiGithubComJson)//把資料放到要傳送出去的陣列中
-                print("fetch() 完成")//在執行 completion 之前
+
+                print(jsonParsingGloss)//印出物件內容
+//                底下暫不執行
+//                dataTransfer.append(apiGithubComJson)//把資料放到要傳送出去的陣列中
+//                print("fetch() 完成")//在執行 completion 之前
             }
             
-            completion(dataTransfer)//執行定義好的 completion handler 將資料傳出
+//            completion(dataTransfer)//執行定義好的 completion handler 將資料傳出
         }
     }
 }
