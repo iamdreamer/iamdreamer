@@ -5,11 +5,14 @@ struct ApiGithubComJson {
     
     let id: Int
     let name: String
-    let owner: (
-    login: String,
-    id: Int,
-    site_admin: Bool
-    )
+    let owner: ApiGithubComJsonOwner
+}
+
+struct ApiGithubComJsonOwner {
+    
+    let login: String
+    let id: Int
+    let site_admin: Bool
 }
 
 extension ApiGithubComJson {//傳入 dictionary 解出我們要的東西
@@ -29,7 +32,7 @@ extension ApiGithubComJson {//傳入 dictionary 解出我們要的東西
         
         self.id = id
         self.name = name
-        self.owner = (login, owner_id, site_admin)
+        self.owner = ApiGithubComJsonOwner(login: login, id: owner_id, site_admin: site_admin)
     }
 }
 
