@@ -1,5 +1,6 @@
 import Foundation
 import Alamofire//需要在這用到網路傳輸套件的功能
+import Gloss
 
 struct ApiGithubComJson {
     
