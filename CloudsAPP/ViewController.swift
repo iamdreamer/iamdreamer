@@ -23,6 +23,9 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
     
     var studentData: StudentData!//用來在放要傳送的資料
     
