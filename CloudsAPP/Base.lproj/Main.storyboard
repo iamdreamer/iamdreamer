@@ -52,7 +52,7 @@
                                     <outlet property="birthLabel" destination="PJz-8E-oEi" id="O1a-f7-53w"/>
                                     <outlet property="genderLabel" destination="Mye-j5-JR1" id="nqu-MF-scs"/>
                                     <outlet property="nameLabel" destination="7XS-H6-Huu" id="yue-R5-tCg"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Ux4-Oz-RyD"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="Ux4-Oz-RyD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
