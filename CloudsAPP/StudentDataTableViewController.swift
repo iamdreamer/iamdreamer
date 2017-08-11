@@ -21,6 +21,9 @@ class StudentDataTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        //刪除功能
+        navigationItem.leftBarButtonItem = editButtonItem
+        
         //模擬從網路取得資料
         loadSampleStudentDatas()
     }
@@ -92,18 +95,18 @@ class StudentDataTableViewController: UITableViewController {
         return true
     }
     */
-
-    /*
+    
+    //刪除功能
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            studentDatas.remove(at: indexPath.row)//將已儲存的陣列資料，同步刪除同一項
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.
