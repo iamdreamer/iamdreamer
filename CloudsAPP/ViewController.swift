@@ -23,8 +23,17 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func cancel(_ sender: UIBarButtonItem) {//2個 segue 跳回上一頁的方式不同
+        
+        let isPresentingInAddItem = presentingViewController is UINavigationController
+        
+        if isPresentingInAddItem {
+            dismiss(animated: true, completion: nil)//原來的 navitation controller 方式，modal 頁面的方式
+        } else if let owningNavigationController = navigationController {
+            owningNavigationController.popViewController(animated: true)//用 show 產生的頁面的方式
+        } else {
+            fatalError("沒有屬於任何 navigation controller")
+        }
     }
     
     var studentData: StudentData!//用來在放要傳送的資料

@@ -52,6 +52,7 @@
                                     <outlet property="birthLabel" destination="PJz-8E-oEi" id="O1a-f7-53w"/>
                                     <outlet property="genderLabel" destination="Mye-j5-JR1" id="nqu-MF-scs"/>
                                     <outlet property="nameLabel" destination="7XS-H6-Huu" id="yue-R5-tCg"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="Ux4-Oz-RyD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -204,7 +205,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="deX-ap-aYK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1663" y="168"/>
+            <point key="canvasLocation" x="1754" y="36"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VTa-nl-m8t">
@@ -240,7 +241,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VUA-9s-91G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="917.60000000000002" y="167.76611694152925"/>
+            <point key="canvasLocation" x="967" y="403"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ux4-Oz-RyD"/>
+    </inferredMetricsTieBreakers>
 </document>
