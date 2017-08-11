@@ -22,6 +22,26 @@ class ViewController: UIViewController {
     @IBAction func okButton(_ sender: UIButton) {
     }
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    var studentData: StudentData!//用來在放要傳送的資料
+    
+    //使用 segue 跳回之前頁面時，可以準備一些要傳的資料
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        super.prepare(for: segue, sender: sender)//有的類別會需要用到
+        
+        if saveButton === sender as? UIBarButtonItem {
+            let name = nameLabel.text ?? "No data"
+            let gender = genderLabel.text ?? "No data"
+            let birth = birthLabel.text ?? "No data"
+            let email = emailLabel.text ?? "No data"
+            let phone = phoneLabel.text ?? "No data"
+            let address = addressLabel.text ?? "No data"
+            
+            studentData = StudentData(name: name, gender: gender, birth: birth)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

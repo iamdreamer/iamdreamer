@@ -67,6 +67,17 @@ class StudentDataTableViewController: UITableViewController {
 
         return cell
     }
+    
+    //以下方法讓 UI 介面可以找到要跳回去的地方
+    @IBAction func unwindToStudentDataList(sender: UIStoryboardSegue) {
+        
+        if let sourceViewController = sender.source as? ViewController,//解析 segue 的來源及資料
+            let studentData = sourceViewController.studentData {
+            let indexPath = IndexPath(row: studentDatas.count, section: 0)
+            studentDatas.append(studentData)
+            tableView.insertRows(at: [indexPath], with: .bottom)
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
