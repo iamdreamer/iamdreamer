@@ -114,14 +114,36 @@ class StudentDataTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+//        super.prepare(for: segue, sender: sender)
+        switch(segue.identifier ?? "") {
+        case "AddItem":
+            print("AddItem, prepare for segue")
+            
+        case "ShowDetail":
+            guard let viewController = segue.destination as? ViewController else {
+                fatalError("不是我們要切的頁面")
+            }
+            
+            guard let selectedStudentDataCell = sender as? StudentDataTableViewCell else {
+                fatalError("不是我們點選的 cell 類別")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedStudentDataCell) else {
+                fatalError("無法解出點選的列的 index")
+            }
+            
+            let selectedStudentData = studentDatas[indexPath.row]
+            viewController.studentData = selectedStudentData
+            
+        default:
+            fatalError("Segue Identifier Unknown: \(String(describing: segue.identifier))")
+        }
     }
-    */
 
 }
