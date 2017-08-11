@@ -73,9 +73,15 @@ class StudentDataTableViewController: UITableViewController {
         
         if let sourceViewController = sender.source as? ViewController,//解析 segue 的來源及資料
             let studentData = sourceViewController.studentData {
-            let indexPath = IndexPath(row: studentDatas.count, section: 0)
-            studentDatas.append(studentData)
-            tableView.insertRows(at: [indexPath], with: .bottom)
+            //根據有沒有點選某個項目來判斷是要更新項目，或是新增項目
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                studentDatas[selectedIndexPath.row] = studentData
+                tableView.reloadRows(at: [selectedIndexPath], with: .fade)
+            } else {
+                let indexPath = IndexPath(row: studentDatas.count, section: 0)
+                studentDatas.append(studentData)
+                tableView.insertRows(at: [indexPath], with: .bottom)
+            }
         }
     }
 
