@@ -62,17 +62,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //希望重構程式到用以下一行即可處理 JSON 的取得
-        //使用這個方法時，其實物件還沒初始化
-        ApiGithubComJsonGloss.fetch(){ dataTransfer in//completion 將資料傳過來
-            self.apiGithubComJsonsGloss = dataTransfer//將資料放在這個類別中
-            
-            print("fetch() 完成後")
-            
-            print(self.helper.apiGithubComJsons as Any)//印出全域變數
-            
-            print(self.apiGithubComJsonsGloss)
+        guard let studentDataTmp = studentData else {
+            //            fatalError("沒有傳進來的資料")//新增資料時會掛，改用 return
+            return
         }
+        
+        nameLabel.text = studentDataTmp.name//將收到的資料設定到 UI
+        genderLabel.text = studentDataTmp.gender
+        birthLabel.text = studentDataTmp.birth
+
     }
     
     override func didReceiveMemoryWarning() {
