@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		271F4F2C1F2ED7D20089B39D /* httpbin.org.json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271F4F2B1F2ED7D20089B39D /* httpbin.org.json.swift */; };
 		271F4F371F2F06B00089B39D /* api.github.com.json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271F4F361F2F06B00089B39D /* api.github.com.json.swift */; };
+		277CD73F1F4144A8000C3D01 /* StudentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CD73E1F4144A8000C3D01 /* StudentData.swift */; };
+		277CD7411F4144F1000C3D01 /* StudentDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CD7401F4144F1000C3D01 /* StudentDataTableViewController.swift */; };
+		277CD7431F414512000C3D01 /* StudentDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CD7421F414512000C3D01 /* StudentDataTableViewCell.swift */; };
 		27B5551E1F259ADA00A8D200 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B5551D1F259ADA00A8D200 /* AppDelegate.swift */; };
 		27B555201F259ADA00A8D200 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B5551F1F259ADA00A8D200 /* ViewController.swift */; };
 		27B555231F259ADA00A8D200 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B555211F259ADA00A8D200 /* Main.storyboard */; };
@@ -139,6 +142,9 @@
 /* Begin PBXFileReference section */
 		271F4F2B1F2ED7D20089B39D /* httpbin.org.json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = httpbin.org.json.swift; sourceTree = "<group>"; };
 		271F4F361F2F06B00089B39D /* api.github.com.json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = api.github.com.json.swift; sourceTree = "<group>"; };
+		277CD73E1F4144A8000C3D01 /* StudentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentData.swift; sourceTree = "<group>"; };
+		277CD7401F4144F1000C3D01 /* StudentDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentDataTableViewController.swift; sourceTree = "<group>"; };
+		277CD7421F414512000C3D01 /* StudentDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentDataTableViewCell.swift; sourceTree = "<group>"; };
 		27B5551A1F259ADA00A8D200 /* CloudsAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudsAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27B5551D1F259ADA00A8D200 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27B5551F1F259ADA00A8D200 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +172,7 @@
 		27B555111F259ADA00A8D200 = {
 			isa = PBXGroup;
 			children = (
+				277CD7421F414512000C3D01 /* StudentDataTableViewCell.swift */,
 				27F6B13C1F380A8500AAA945 /* Gloss.xcodeproj */,
 				27B5552F1F25A5EE00A8D200 /* Alamofire.xcodeproj */,
 				27B5551C1F259ADA00A8D200 /* CloudsAPP */,
@@ -184,6 +191,7 @@
 		27B5551C1F259ADA00A8D200 /* CloudsAPP */ = {
 			isa = PBXGroup;
 			children = (
+				277CD73E1F4144A8000C3D01 /* StudentData.swift */,
 				27B5551D1F259ADA00A8D200 /* AppDelegate.swift */,
 				27B5551F1F259ADA00A8D200 /* ViewController.swift */,
 				27B555211F259ADA00A8D200 /* Main.storyboard */,
@@ -192,6 +200,7 @@
 				27B555291F259ADA00A8D200 /* Info.plist */,
 				271F4F2B1F2ED7D20089B39D /* httpbin.org.json.swift */,
 				271F4F361F2F06B00089B39D /* api.github.com.json.swift */,
+				277CD7401F4144F1000C3D01 /* StudentDataTableViewController.swift */,
 			);
 			path = CloudsAPP;
 			sourceTree = "<group>";
@@ -397,7 +406,10 @@
 				271F4F371F2F06B00089B39D /* api.github.com.json.swift in Sources */,
 				27B555201F259ADA00A8D200 /* ViewController.swift in Sources */,
 				27B5551E1F259ADA00A8D200 /* AppDelegate.swift in Sources */,
+				277CD7411F4144F1000C3D01 /* StudentDataTableViewController.swift in Sources */,
 				271F4F2C1F2ED7D20089B39D /* httpbin.org.json.swift in Sources */,
+				277CD7431F414512000C3D01 /* StudentDataTableViewCell.swift in Sources */,
+				277CD73F1F4144A8000C3D01 /* StudentData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
