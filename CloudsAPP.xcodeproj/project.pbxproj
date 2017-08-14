@@ -18,6 +18,9 @@
 		27B555671F25BB8400A8D200 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 27B5553B1F25A5EE00A8D200 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		27F6B1591F380DF100AAA945 /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F6B14C1F380A8600AAA945 /* Gloss.framework */; };
 		27F6B15A1F380DF100AAA945 /* Gloss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 27F6B14C1F380A8600AAA945 /* Gloss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		27F6B1661F384DA400AAA945 /* StudentDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F6B1651F384DA400AAA945 /* StudentDataTableViewCell.swift */; };
+		27F6B1681F38524300AAA945 /* StudentDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F6B1671F38524300AAA945 /* StudentDataTableViewController.swift */; };
+		27F6B16A1F38530C00AAA945 /* StudentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F6B1691F38530C00AAA945 /* StudentData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +151,9 @@
 		27B555291F259ADA00A8D200 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27B5552F1F25A5EE00A8D200 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		27F6B13C1F380A8500AAA945 /* Gloss.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Gloss.xcodeproj; path = Gloss/Gloss.xcodeproj; sourceTree = "<group>"; };
+		27F6B1651F384DA400AAA945 /* StudentDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StudentDataTableViewCell.swift; path = ../StudentDataTableViewCell.swift; sourceTree = "<group>"; };
+		27F6B1671F38524300AAA945 /* StudentDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentDataTableViewController.swift; sourceTree = "<group>"; };
+		27F6B1691F38530C00AAA945 /* StudentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,9 +190,12 @@
 		27B5551C1F259ADA00A8D200 /* CloudsAPP */ = {
 			isa = PBXGroup;
 			children = (
+				27F6B1651F384DA400AAA945 /* StudentDataTableViewCell.swift */,
 				27B5551D1F259ADA00A8D200 /* AppDelegate.swift */,
 				27B5551F1F259ADA00A8D200 /* ViewController.swift */,
 				27B555211F259ADA00A8D200 /* Main.storyboard */,
+				27F6B1671F38524300AAA945 /* StudentDataTableViewController.swift */,
+				27F6B1691F38530C00AAA945 /* StudentData.swift */,
 				27B555241F259ADA00A8D200 /* Assets.xcassets */,
 				27B555261F259ADA00A8D200 /* LaunchScreen.storyboard */,
 				27B555291F259ADA00A8D200 /* Info.plist */,
@@ -396,8 +405,11 @@
 			files = (
 				271F4F371F2F06B00089B39D /* api.github.com.json.swift in Sources */,
 				27B555201F259ADA00A8D200 /* ViewController.swift in Sources */,
+				27F6B1661F384DA400AAA945 /* StudentDataTableViewCell.swift in Sources */,
 				27B5551E1F259ADA00A8D200 /* AppDelegate.swift in Sources */,
 				271F4F2C1F2ED7D20089B39D /* httpbin.org.json.swift in Sources */,
+				27F6B1681F38524300AAA945 /* StudentDataTableViewController.swift in Sources */,
+				27F6B16A1F38530C00AAA945 /* StudentData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
