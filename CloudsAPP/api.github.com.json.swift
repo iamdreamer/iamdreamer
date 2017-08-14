@@ -42,6 +42,9 @@ extension ApiGithubComJsonGloss {
                 return
             }
             
+            var helper = Helper.sharedInstance//使用 singleton 的方法
+            helper.apiGithubComJsons = dataTransfer//將資料放在全域變數中
+            
             completion(dataTransfer)//執行定義好的 completion handler 將資料傳出
         }
     }

@@ -12,6 +12,8 @@ import Alamofire
 class ViewController: UIViewController {
     var apiGithubComJsonsGloss: [ApiGithubComJsonGloss] = []//用來放 completion 傳來的資料
     
+    var helper = Helper.sharedInstance//用來放 singleton 物件
+    
     //UI 連結
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
@@ -64,7 +66,11 @@ class ViewController: UIViewController {
         //使用這個方法時，其實物件還沒初始化
         ApiGithubComJsonGloss.fetch(){ dataTransfer in//completion 將資料傳過來
             self.apiGithubComJsonsGloss = dataTransfer//將資料放在這個類別中
+            
             print("fetch() 完成後")
+            
+            print(self.helper.apiGithubComJsons as Any)//印出全域變數
+            
             print(self.apiGithubComJsonsGloss)
         }
     }
