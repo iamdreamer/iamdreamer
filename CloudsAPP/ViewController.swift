@@ -9,23 +9,22 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     var apiGithubComJsonsGloss: [ApiGithubComJsonGloss] = []//用來放 completion 傳來的資料
     
     var helper = Helper.sharedInstance//用來放 singleton 物件
     
     //UI 連結
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var genderLabel: UILabel!
-    @IBOutlet weak var birthLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var bigHeadPhotoImageView: UIImageView!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var genderTextField: UITextField!
+    @IBOutlet weak var birthTextField: UITextField!
+    @IBOutlet weak var phoneTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var addressTextField: UITextField!
+    
     
     //UI 連結
-    @IBAction func okButton(_ sender: UIButton) {
-    }
-    
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBAction func cancel(_ sender: UIBarButtonItem) {//2個 segue 跳回上一頁的方式不同
         
@@ -47,12 +46,12 @@ class ViewController: UIViewController {
 //        super.prepare(for: segue, sender: sender)//有的類別會需要用到
         
         if saveButton === sender as? UIBarButtonItem {
-            let name = nameLabel.text ?? "No data"
-            let gender = genderLabel.text ?? "No data"
-            let birth = birthLabel.text ?? "No data"
-            let email = emailLabel.text ?? "No data"
-            let phone = phoneLabel.text ?? "No data"
-            let address = addressLabel.text ?? "No data"
+            let name = nameTextField.text ?? "No data"
+            let gender = genderTextField.text ?? "No data"
+            let birth = birthTextField.text ?? "No data"
+            let email = emailTextField.text ?? "No data"
+            let phone = phoneTextField.text ?? "No data"
+            let address = addressTextField.text ?? "No data"
             
             studentData = StudentData(name: name, gender: gender, birth: birth)
         }
@@ -66,11 +65,13 @@ class ViewController: UIViewController {
             //            fatalError("沒有傳進來的資料")//新增資料時會掛，改用 return
             return
         }
-        
-        nameLabel.text = studentDataTmp.name//將收到的資料設定到 UI
-        genderLabel.text = studentDataTmp.gender
-        birthLabel.text = studentDataTmp.birth
-
+       
+        nameTextField.delegate = self
+        genderTextField.delegate = self
+        birthTextField.delegate = self
+        emailTextField.delegate = self
+        phoneTextField.delegate = self
+        addressTextField.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
