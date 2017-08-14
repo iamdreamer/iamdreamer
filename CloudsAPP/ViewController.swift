@@ -55,7 +55,7 @@ class ViewController: UIViewController {
             studentData = StudentData(name: name, gender: gender, birth: birth)
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -66,6 +66,8 @@ class ViewController: UIViewController {
             self.apiGithubComJsonsGloss = dataTransfer//將資料放在這個類別中
             print("fetch() 完成後")
             print(self.apiGithubComJsonsGloss)
+        }
+        
         guard let studentDataTmp = studentData else {
 //            fatalError("沒有傳進來的資料")//新增資料時會掛，改用 return
             return
