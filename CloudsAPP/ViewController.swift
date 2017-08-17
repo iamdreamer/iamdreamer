@@ -9,7 +9,8 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController, UITextFieldDelegate {
+//加入選擇照片用的協定：UIImagePickerControllerDelegate，UIImagePickerControllerDelegate
+class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var apiGithubComJsonsGloss: [ApiGithubComJsonGloss] = []//用來放 completion 傳來的資料
     
     var helper = Helper.sharedInstance//用來放 singleton 物件
@@ -72,6 +73,31 @@ class ViewController: UIViewController, UITextFieldDelegate {
         emailTextField.delegate = self
         phoneTextField.delegate = self
         addressTextField.delegate = self
+    }
+    
+    //點選照片時觸發的動作, 由 UI 的 tap gesture 拉過來
+    @IBAction func selectPhoto(_ sender: UITapGestureRecognizer) {
+        let selectPhotoController = UIImagePickerController()//選擇照片的頁面
+        selectPhotoController.sourceType = .photoLibrary//從照片庫
+//        selectPhoto.sourceType = .camera
+        selectPhotoController.delegate = self
+        
+        present(selectPhotoController, animated: true, completion: nil)
+    }
+    
+    //協定必需完成的 取消 方法
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    //協定必需完成的 選了一個照片 方法
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        guard let selectedPhoto = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            fatalError("解不出照片 - \(info)")
+        }
+        
+        bigHeadPhotoImageView.image = selectedPhoto//把解出來的照片放到程式中的大頭照位置
+        dismiss(animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
