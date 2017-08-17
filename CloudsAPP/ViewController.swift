@@ -73,6 +73,24 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         emailTextField.delegate = self
         phoneTextField.delegate = self
         addressTextField.delegate = self
+        
+        //點別處收起鍵盤
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false//讓 tableView 可以正常動作
+        view.addGestureRecognizer(tap)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)//方法一
+        
+//        nameTextField.resignFirstResponder()//方法二
+//        genderTextField.resignFirstResponder()
+//        birthTextField.resignFirstResponder()
+//        emailTextField.resignFirstResponder()
+//        phoneTextField.resignFirstResponder()
+//        addressTextField.resignFirstResponder()
+        
+        return true
     }
     
     //點選照片時觸發的動作, 由 UI 的 tap gesture 拉過來
