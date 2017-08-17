@@ -8,10 +8,25 @@
 
 import UIKit
 
-class RatingControl: UIStackView {
+//與 Interface Builder 連接
+@IBDesignable class RatingControl: UIStackView {
 
-    private var starButtons = [UIButton]()
+    private var starButtons = [UIButton]()//存放生成的物件，以供後來使用
     var stars = 0
+    
+    //與 Interface Builder 連接
+    @IBInspectable var starSize: CGSize = CGSize(width: 15.0, height: 15.0) {
+        didSet {
+            setupButtons()
+        }
+    }
+    
+    //與 Interface Builder 連接
+    @IBInspectable var starNumber: Int = 5 {
+        didSet {
+            setupButtons()
+        }
+    }
     
     override init(frame: CGRect) {
         
@@ -28,24 +43,20 @@ class RatingControl: UIStackView {
     }
 
     private func setupButtons() {
-        //產生 1 個 button
-//        let button = UIButton()
-//        button.backgroundColor = UIColor.black
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        button.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
-//        button.widthAnchor.constraint(equalToConstant: 20.0).isActive = true
-//        
-//        button.addTarget(self, action: #selector(RatingControl.tapButton(button:)), for: .touchUpInside)
-//        
-//        addArrangedSubview(button)
         
-        //產生一些 button
-        for _ in 0..<5 {
+        //先根據陣列中的物件從 UI 移除
+        for button in starButtons {
+            removeArrangedSubview(button)
+        }
+        starButtons.removeAll()//再從陣列中全部移除
+        
+        //根據 UI 設定來產生一些 button
+        for _ in 0..<starNumber {
             let button = UIButton()
             button.backgroundColor = UIColor.black
             button.translatesAutoresizingMaskIntoConstraints = false
-            button.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
-            button.widthAnchor.constraint(equalToConstant: 20.0).isActive = true
+            button.heightAnchor.constraint(equalToConstant: starSize.height).isActive = true//根據 UI 設定的 height, width
+            button.widthAnchor.constraint(equalToConstant: starSize.width).isActive = true
             
             button.addTarget(self, action: #selector(RatingControl.tapButton(button:)), for: .touchUpInside)
             
