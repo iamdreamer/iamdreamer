@@ -39,5 +39,15 @@ extension ApiStudentServer {
             completion(dataTransfer)
         }
     }
+    
+    //用 post 方式新增資料，以 Alamofire 定義的格式傳入資料，response 中可以檢查動作是否正確
+    static func add(parameters: Parameters) {
+        request("http://192.168.62.3:6080/api/api_add_post.php", method: .post, parameters: parameters, encoding: URLEncoding.default).responseString { response in
+            print(response.request as Any)
+            print(response.response as Any)
+            print(response.data as Any)
+            print(response.result as Any)
+        }
+    }
 }
 

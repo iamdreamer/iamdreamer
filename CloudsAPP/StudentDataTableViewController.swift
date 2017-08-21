@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class StudentDataTableViewController: UITableViewController {
 
@@ -109,6 +110,16 @@ class StudentDataTableViewController: UITableViewController {
                 tableView.reloadRows(at: [selectedIndexPath], with: .fade)
             } else {
                 let indexPath = IndexPath(row: studentDatas.count, section: 0)
+                
+                //新增之後，將資料傳到雲端，根據網頁中，新增頁面的程式碼
+                let parameters: Parameters = [ "cName" : studentData.name,
+                                               "cSex" : studentData.gender,
+                                               "cBirthday" : studentData.birth,
+                                               "cEmail" : "test",
+                                               "cPhone" : "test",
+                                               "cAddr" : "test"]
+                ApiStudentServer.add(parameters: parameters)
+                
                 studentDatas.append(studentData)
                 tableView.insertRows(at: [indexPath], with: .bottom)
             }
