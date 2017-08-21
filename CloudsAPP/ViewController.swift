@@ -54,7 +54,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
             let phone = phoneTextField.text ?? "No data"
             let address = addressTextField.text ?? "No data"
             
-            studentData = StudentData(name: name, gender: gender, birth: birth)
+            studentData = StudentData(name: name, gender: gender, birth: birth, photo: nil, stars: 1)//StudentData 參數改變
         }
     }
     

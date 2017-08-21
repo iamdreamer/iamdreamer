@@ -54,22 +54,22 @@ class StudentDataTableViewController: UITableViewController {
 //            guard let studentData = StudentData(name: name, gender: gender, birth: birth) else {
 //                fatalError("convert data error")
 //            }
-            let studentData = StudentData(name: name, gender: gender, birth: birth)
+            let studentData = StudentData(name: name, gender: gender, birth: birth, photo: nil, stars: 1)//StudentData 參數改變
             
-            studentDatas.append(studentData)
+            studentDatas.append(studentData!)//StudentData 參數改變
         }
     }
     
     //模擬從網路取得資料
-    func loadSampleStudentDatas() {
-        let studentData1 = StudentData(name: "mike1", gender: "male", birth: "1999-1-1")
-        let studentData2 = StudentData(name: "mike2", gender: "male", birth: "1999-1-2")
-        let studentData3 = StudentData(name: "mike3", gender: "male", birth: "1999-1-3")
-        let studentData4 = StudentData(name: "mike4", gender: "male", birth: "1999-1-4")
-        let studentData5 = StudentData(name: "mike5", gender: "male", birth: "1999-1-5")
-        
-        studentDatas += [studentData1, studentData2, studentData3, studentData4, studentData5]
-    }
+//    func loadSampleStudentDatas() {
+//        let studentData1 = StudentData(name: "mike1", gender: "male", birth: "1999-1-1")
+//        let studentData2 = StudentData(name: "mike2", gender: "male", birth: "1999-1-2")
+//        let studentData3 = StudentData(name: "mike3", gender: "male", birth: "1999-1-3")
+//        let studentData4 = StudentData(name: "mike4", gender: "male", birth: "1999-1-4")
+//        let studentData5 = StudentData(name: "mike5", gender: "male", birth: "1999-1-5")
+//        
+//        studentDatas += [studentData1, studentData2, studentData3, studentData4, studentData5]
+//    }
 
     // MARK: - Table view data source
 
