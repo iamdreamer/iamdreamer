@@ -72,7 +72,11 @@ import UIKit
             button.heightAnchor.constraint(equalToConstant: starSize.height).isActive = true//根據 UI 設定的 height, width
             button.widthAnchor.constraint(equalToConstant: starSize.width).isActive = true
             
-            button.addTarget(self, action: #selector(RatingControl.tapButton(button:)), for: .touchUpInside)
+            //Selector 是從 OC 沿續過來的
+//            button.addTarget(self, action: Selector("tapButton:"), for: .touchUpInside)
+//            swift 用比較安全的方法，請 compiler 幫忙轉成字串
+//            button.addTarget(self, action: #selector(RatingControl.tapButton(button:)), for: .touchUpInside)
+            button.addTarget(self, action: .tapButton, for: .touchUpInside)//改到 extension 增加程式可讀
             
             addArrangedSubview(button)
             starButtons.append(button)
@@ -94,4 +98,8 @@ import UIKit
             button.isSelected = index < stars//index 比星星數小的時候，會得到 true，所以星星數就對了
         }
     }
+}
+
+extension Selector{
+    static let tapButton = #selector(RatingControl.tapButton(button:))
 }
